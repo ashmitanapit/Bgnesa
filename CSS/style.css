@@ -2,3 +2,7 @@
 	background-color: #015D9E;
 }
 
+canvas{
+  /*prevent interaction with the canvas*/
+  pointer-events:none;
+}
