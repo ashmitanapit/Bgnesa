@@ -7,21 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<style>
-  
-    table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 15px;
-}
-  </style>
-<body>
+<body onload="createCaptcha()">
   
 <div class="topnav">
   <div class="container-fluid">
@@ -133,62 +124,146 @@ th, td {
   
 </div>
 
-<div class="table">
+<div class="contactinfo">
   <div class="container-fluid">
-    <div class="container" style="padding: 30px 70px;">
-      <table  style="width: 100%">
-        <tr>
-          <th>S.N</th>
-          <th>Rank</th>
-          <th>Name</th>
-          <th>District</th>
-          <th>Contact</th>
-          <th>Remarks</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th>Senior Advisor</th>
-          <th>Mjr. Bhim Bahadur Gurung</th>
-          <th>Kathmandu</th>
-          <th>987654322</th>
-          <th></th>
-        </tr>
-        <tr>
-          <th>2</th>
-          <th>Senior Advisor</th>
-          <th>Mjr. Bhim Bahadur Gurung</th>
-          <th>Kathmandu</th>
-          <th>987654322</th>
-          <th></th>
-        </tr>
-        <tr>
-          <th>3</th>
-          <th>Senior Advisor</th>
-          <th>Mjr. Bhim Bahadur Gurung</th>
-          <th>Kathmandu</th>
-          <th>987654322</th>
-          <th></th>
-        </tr>
-        <tr>
-          <th>4</th>
-          <th>Senior Advisor</th>
-          <th>Mjr. Bhim Bahadur Gurung</th>
-          <th>Kathmandu</th>
-          <th>987654322</th>
-          <th></th>
-        </tr>
-        <tr>
-          <th>5</th>
-          <th>Senior Advisor</th>
-          <th>Mjr. Bhim Bahadur Gurung</th>
-          <th>Kathmandu</th>
-          <th>987654322</th>
-          <th></th>
-        </tr>
-      </table>
-    </div>
+    <div class="container" style="padding: 0 70px; padding-top: 50px;">
+          <div class="form" style="background-color: #F8F8F8; padding: 30px 10px;">
+        <form onsubmit="validateCaptcha()">
+          <div class="box">
+            <label for="name">Your Name</label>
+            <input type="name" class="form-control" id="name" placeholder="Enter Your Full Name" name="name">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            <div class="box">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="Email" placeholder="Enter Email Address" name="Email">
+          </div>
+          <div class="box">
+            <label for="Address">Address 1</label>
+            <input type="address" class="form-control" id="email" placeholder="Enter Address 1" name="Address">
+          </div>
+          <div class="box">
+            <label for="Address">Town/City</label>
+            <input type="Address" class="form-control" id="Address" placeholder="Enter Town/City" name="Address">
+          </div>
+        
+          </div>
+          <div class="col-md-6">
+            <div class="box">
+            <label for="Phone">Phone</label>
+            <input type="Phone" class="form-control" id="Phone" placeholder="Enter Phone" name="Phone">
+          </div>
+          <div class="box">
+            <label for="Address">Address 2</label>
+            <input type="address" class="form-control" id="email" placeholder="Enter Address 2" name="Address">
+          </div>
+          <div class="box">
+            <label for="Address">Postal Code</label>
+            <input type="Address" class="form-control" id="Address" placeholder="Enter Postal Code" name="Address">
+          </div>
+        
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="box">
+            <label for="Address">Address in Nepal</label>
+            <input type="Address" class="form-control" id="Address" placeholder="Enter Address in Nepal" name="Address">
+          </div>
+          </div>
+          <div class="col-md-3">
+            <div class="box">
+              <label for="Image">User Image</label>
+              <form action="/action">
+                <input type="file" id="myFile" name="filename">
+                
+              </form>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <h5>Membership Type</h5>
+        <div class="box">
+            <label for="Membership">Membership Type</label>
+            <br>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select Membership Type</option>
+              <option value="1">Individual Life Member</option>
+              <option value="2">Family Life Member</option>
+              <option value="3">Ordinary Member</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <h5>Declaration</h5>
+        <p>1. Photographs of BGNESA members may be used in various BGNESA communications incl. the newsletter and website. Group photographs taken at BGNESA events may be used without identifying individual members. For individual photographs, please indicate your permission for use</p>
+
+        <div class="form-check">
+          <label class="form-check-label" for="flexRadioDefault1">
+             Yes            
+          </label>
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault2">
+                No
+              </label>
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  
+        </div>
+        <p>2. Have you been convicted of a criminal offence which is not spent under the Rehabilitation of Offenders Act 1974?</p>
+
+
+        <div class="form-check">
+          <label class="form-check-label" for="flexRadioDefault1">
+             Yes            
+          </label>
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault2">
+                No
+              </label>
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  
+        </div>
+          
+          <br>
+
+          <div class="box">
+            <div class="row">
+              <div class="col-md-2">
+
+         <!--  captcha -->
+            <div id="captcha">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <input type="text" placeholder="Captcha" id="cpatchaTextBox"/>
+          </div>
+        </div>
+            
+            
+            <hr>
+
+            <h5>Bank Details</h5>
+            <h6>Please transfer Your membership fee in this Bank account.</h6>
+            <p>Organization Name: BGNESA UK<br>
+              Bank Name: home:bankname
+              <br><br> Sort Code: home:bankscno
+              <br>Account Name: home:bankacno</p>
+
+              <button type="submit">Send Member Request</button>
+          
+        </div>
+         </form>
+
+      
+        </div>
+      
+      
+    
   </div>
 </div>
+
 
 
 
@@ -231,6 +306,6 @@ th, td {
       <p style="text-align: center; padding-top: 10px;">All Rights Reserved. © 2021 Design By : W3 Web Technology</p>
     </div>
   </div>
-
+   <script src="captcha.js"></script>
 </body>
 </html>
